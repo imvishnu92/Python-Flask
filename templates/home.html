@@ -1,52 +1,92 @@
-<!DOCTYPE html>  
-<html>
-  <head>
-    <style>
-      h1{
-        font-size: 40px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(100,100,100);
-        text-align : center;
-      }
-      #banner{
-        width: 100%;
-        heigth: 360px;
-        object-fit:cover;
-      }
-      h2{
-        font-family : Roboto;
-        font-size : 32px;
-        color : rgb(100,100,100);
-        text-align : center;
-        font-weight : normal;
-      }
-      .bodytext {
-        font-family : Roboto;
-        color : rgb(80,80,80);
-      }
-      #container{
-        max-width : 720px;
-        margin : 0 auto 0 auto;
-      }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <title>SriRam Industries</title>
-    <body>
-      <div id="container">
-      <h1>SriRam Industries</h1>
-      <img id="banner" src="https://bf7f6b79-e270-4013-9e13-44ae9b1a1476-00-jbw5xjqus4k1.pike.replit.dev/static/banner.jpg" height="320">
-      <h2>About SriRam Industries</h2>
-      <p class="bodytext">Lorem ipsum odor amet, consectetuer adipiscing elit. Primis viverra integer libero fusce integer mollis. Nunc orci inceptos curae efficitur lobortis posuere egestas etiam. Dis arcu nulla amet aptent, dictumst gravida venenatis facilisi eu. Himenaeos elit potenti nec pretium, mi ipsum duis nam. Leo justo eros feugiat diam arcu felis in. Adipiscing dignissim habitasse euismod parturient mollis; eget vehicula nam?
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        #banner {
+            height: 360px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
 
-      Convallis lacinia ante nibh sed fringilla sollicitudin faucibus auctor. Curabitur dolor sem libero conubia vestibulum donec lectus morbi dapibus. Justo ex ad potenti mollis montes etiam dictum metus. Gravida at nulla libero potenti nisi. Curabitur fames parturient cubilia nam ex tempor fermentum tellus. Finibus molestie a volutpat mi congue mus tristique litora aliquet. Cras iaculis elit a senectus diam dis curabitur. Rhoncus mus morbi lacus sagittis himenaeos aliquet phasellus duis. Taciti elementum potenti volutpat cubilia euismod lectus blandit sapien.
+<body>
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">SriRam Industries</h1>
+        <img class="img-responsive" id="banner"
+            src="https://bf7f6b79-e270-4013-9e13-44ae9b1a1476-00-jbw5xjqus4k1.pike.replit.dev/static/banner.jpg"
+            height="320">
+        <h2 class="text-center">About SriRam Industries</h2>
+        <p class="lead">Founded in 1985 by a group of highly enterprising youngsters guided by an expert semiconductor
+            technologist in india, SriRam Industries has been designing and manufacturing solder wafers and preforms for
+            the semiconductor industry in India.
 
-      Rhoncus sapien elit; congue ridiculus amet libero. Sollicitudin class luctus aenean gravida; commodo risus potenti luctus. Proin leo finibus, curabitur natoque vestibulum nisi. Vel sed posuere natoque quisque tincidunt condimentum sapien vestibulum nisl. Aliquet nullam curabitur congue tortor ad viverra pharetra ad. Rutrum ut posuere ipsum parturient; quisque id amet. Ante potenti porta orci phasellus consectetur aptent. Curabitur purus cubilia consequat justo augue ante pharetra pretium habitant. Orci neque volutpat sed ipsum luctus adipiscing!</p>
-      <h2>Our Products</h2>
-        <div style="text-align:center;">
-      <button>Contact Us</button>
-          <p>Copyright 2024, SriRam Industries</p>
+            The semiconductor device technology is based on very high standards of purity and cleanliness of input raw
+            materials as well processing and packaging.
+
+            Thus Sri Ram Industries also had to eveolve and maintain stringent levels of quality of raw materials and
+            cleanliness in the production of alloys and preforms. Precision and accuracy of dimensions and weight have
+            become the life breath of Sri Ram Industries.</p>
+        <h2 class="text-center mt-2 mb-4"">Our Products</h2>
+    <div>
+      {% for product in products%}
+      {% include 'products.html' %}
+      {% endfor %}
+    </div>
+      <div class = " text-center mt-4 mb-4">
+            <!--<div class="row"><-->
+            <!--<h1 class="text-center"><a href="#myModal" role="button" class="btn btn-primary btn-lg" data-toggle="modal">Contact Us</a></h1><-->
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#popupModal">
+                Contact Us</button>
+            <!-- </div> <-->
+            <p class="mt-4">Copyright 2024, SriRam Industries</p>
+    </div>
+    </div>
+
+   <!-- Modal -->
+    <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="popupModalLabel">Contact Us</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact_form" name="contact_form" method="post">
+                        <div class="mb-5">
+                            <label for="email_addr">Email address</label>
+                            <input type="email" required maxlength="50" class="form-control" id="email_addr" name="email"
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="mb-5">
+                            <label for="name_input">Name</label>
+                            <input type="text" required maxlength="50" class="form-control" id="name_input" name="name"
+                                placeholder="Name">
+                        </div>
+                        <div class="mb-5">
+                            <label for="phone_input">Phone</label>
+                            <input type="tel" required maxlength="50" class="form-control" id="phone_input" name="Phone"
+                                placeholder="Phone">
+                        </div>
+                        <div class="mb-5">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </body>
-  </head>
+    </div>
+</body>
+
 </html>
